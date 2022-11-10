@@ -1,0 +1,27 @@
+{
+    "name": "yemenpoint/filament-tree",
+    "description": "Filament Tree field and page",
+    "type": "library",
+    "require": {
+        "php": "^8.0",
+        "filament/filament": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yemenpoint\\FilamentTree\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "yemenpoint",
+            "email": "ebrahim29001@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yemenpoint\\FilamentTree\\FilamentTreeServiceProvider"
+            ]
+        }
+    }
+}
