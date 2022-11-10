@@ -28,17 +28,16 @@ trait HasTree
 
     public static function prepareNode(&$readyItems, $item, $parent_id = null)
     {
-        $item['parent_id'] = $parent_id;
+        $readyItems[] = [
+            "id" => data_get($item, 'id'),
+            "parent_id" => $parent_id,
+        ];
+
         if ($children = data_get($item, "children", [])) {
             foreach ($children as $child) {
                 self::prepareNode($readyItems, $child, data_get($item, 'id'));
             }
         }
-
-        $readyItems[] = [
-            "id" => data_get($item, 'id'),
-            "parent_id" => data_get($item, 'parent_id'),
-        ];
     }
 
 }
