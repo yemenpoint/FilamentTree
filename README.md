@@ -28,7 +28,10 @@ TreeField::make("items")
 ->setMaxDepth(999)
 ->default([["id" => "1", "name" => "item 1", "children" => [["id" => "2", "name" => "item 2", "children" => []]]]]),
 ```
-
+<div align="center">
+    <img src="https://github.com/yemenpoint/FilamentTree/blob/main/images/tree.png" alt="">
+</div>
+<br/>
 
 # Tree Page
 
