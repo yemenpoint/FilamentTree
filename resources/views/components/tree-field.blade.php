@@ -10,11 +10,14 @@
     function {{$tree_id}}treeHandel(config) {
         return {
             value: config.value,
-            changed_value: null,
             {{$tree_id}}init: function () {
+
                 $('#{{$tree_id}}').nestable({
                     group: {{$tree_id}},
-                    maxDepth: {{ $getMaxDepth()}}
+                    maxDepth: {{ $getMaxDepth()}},
+                    onDragStart: function (l, e) {
+                        return {{$isDisabled() ? "false" : "true"}};
+                    }
                 }).on('change', function () {
                     this.value = $('#{{$tree_id}}').nestable('serialize');
                 }.bind(this));
@@ -27,6 +30,7 @@
                 $('#collapse').on('click', function (e) {
                     $('#{{$tree_id}}').nestable('collapseAll');
                 });
+
             }
         }
     }

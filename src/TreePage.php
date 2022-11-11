@@ -10,11 +10,14 @@ abstract class TreePage extends Page
 
     protected static string $view = 'filament-tree::tree-page';
 
-    public int $maxDepth = 999;
-
     public function getMaxDepth(): int
     {
-        return $this->maxDepth;
+        return 999;
+    }
+
+    public function isDisabled(): bool
+    {
+        return false;
     }
 
 
@@ -29,6 +32,9 @@ abstract class TreePage extends Page
 
     public function updateTree($tree)
     {
+        if ($this->isDisabled()) {
+            return;
+        }
         try {
             $model = static::getModel();
 
