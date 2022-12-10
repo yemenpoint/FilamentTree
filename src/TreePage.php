@@ -45,7 +45,7 @@ abstract class TreePage extends Page
             }
 
         } catch (\Exception $e) {
-            $this->notify("error", "something went wrong");
+            $this->notify("error", __("filament-tree::filament-tree.tree_error_message"));
         }
     }
 

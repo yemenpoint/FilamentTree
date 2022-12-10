@@ -13,6 +13,7 @@ class FilamentTreeServiceProvider extends PluginServiceProvider
         $package
             ->name('filament-tree')
             ->hasAssets()
+            ->hasTranslations()
             ->hasViews();
     }
 }

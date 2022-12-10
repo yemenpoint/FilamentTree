@@ -1,5 +1,5 @@
 @php
-    $tree_id = "tree_view_id"  ;
+    $tree_id = "tree_view_id";
 @endphp
 
 @include("filament-tree::tree-assets")
@@ -36,12 +36,12 @@
     <menu id="nestable-menu">
         <button id="expand" type="button"
                 class="filament-button filament-button-size-md inline-flex items-center justify-center py-1 gap-1 font-medium rounded-lg border transition-colors focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-inset dark:focus:ring-offset-0 min-h-[2.25rem] px-4 text-sm text-white shadow focus:ring-white border-transparent bg-primary-600 hover:bg-primary-500 focus:bg-primary-700 focus:ring-offset-primary-700 filament-page-button-action">
-            <span class="flex items-center gap-1"> Expand All</span>
+            <span class="flex items-center gap-1">{{__("filament-tree::filament-tree.expand_all")}}</span>
 
         </button>
         <button id="collapse" type="button"
                 class="filament-button filament-button-size-md inline-flex items-center justify-center py-1 gap-1 font-medium rounded-lg border transition-colors focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-inset dark:focus:ring-offset-0 min-h-[2.25rem] px-4 text-sm text-white shadow focus:ring-white border-transparent bg-primary-600 hover:bg-primary-500 focus:bg-primary-700 focus:ring-offset-primary-700 filament-page-button-action">
-            <span class="flex items-center gap-1">Collapse All</span>
+            <span class="flex items-center gap-1">{{__("filament-tree::filament-tree.collapse_all")}}</span>
 
         </button>
     </menu>
@@ -63,7 +63,7 @@
 
             <x-filament-support::loading-indicator id="loading" style="display:none" class="w-4 h-4"/>
 
-            <span class="flex items-center gap-1">Save</span>
+            <span class="flex items-center gap-1">{{__("filament-tree::filament-tree.save")}}</span>
 
         </button>
     @endif

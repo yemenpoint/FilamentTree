@@ -8,6 +8,10 @@ trait HasTree
     {
         return "order";
     }
+    public static function parentColumnName(): string
+    {
+        return "parent_id";
+    }
 
     public static function SaveTree($tree = null)
     {
@@ -19,10 +23,11 @@ trait HasTree
         foreach ($readyItems as $key => &$item) {
             $item[self::orderColumnName()] = $key;
         }
+        foreach ($readyItems as $i) {
+            self::where("id",data_get($i,"id"))->update($i);
+        }
 
-        self::upsert($readyItems, ['id']);
-
-        return ["success", "tree updated"];
+        return ["success", __("filament-tree::filament-tree.tree_saved_message")];
     }
 
 
@@ -30,7 +35,7 @@ trait HasTree
     {
         $readyItems[] = [
             "id" => data_get($item, 'id'),
-            "parent_id" => $parent_id,
+            self::parentColumnName() => $parent_id,
         ];
 
         if ($children = data_get($item, "children", [])) {
